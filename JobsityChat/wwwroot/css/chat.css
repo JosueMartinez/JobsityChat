@@ -1,0 +1,128 @@
+﻿.container-chat {
+    margin: 0 auto;
+    width: 90%;
+    background: #444753;
+    border-radius: 5px;
+}
+
+.chat {
+    width: 80%;
+    height: 80%;
+    float: left;
+    background: #F2F5F8;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #434651;
+}
+
+.chat-history {
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    height: 575px;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 2px solid white;
+}
+
+.chat-about {
+    float: left;
+    padding-left: 10px;
+    margin-top: 6px;
+}
+
+.chat-message {
+    padding: 30px;
+}
+
+.message-data {
+    margin-bottom: 15px;
+}
+
+.message-data-time {
+    color: #808080;
+    padding-left: 6px;
+}
+
+.my-message {
+    background: green;
+}
+
+.other-message {
+    background: lightgreen;
+}
+
+.other-message:after{
+    border-bottom-color: lightblue;
+    left: 93%;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    font: 14px/22px "Lato", Arial, sans-serif;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    resize: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+button {
+    float: right;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: green;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/* Chat containers */
+.message-container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+/* Clear floats */
+.message-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}

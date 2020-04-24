@@ -1,0 +1,48 @@
+﻿
+@{
+
+}
+    <input id="username" type="hidden" value="@User.Identity.Name" />
+
+<div class="container-chat clear-fix">
+    <div class="people-list" id="people-list">
+
+    </div>
+    <div class="chat">
+        <div class="chat-header clearfix">
+            <div class="chat-about">
+                <h1>Jobsity ChatRoom</h1>
+            </div>
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="chat-history">
+            <ul id="messagesList">
+                <li class="message-container">
+                    <p class="font-weight-bold">Juan:</p>
+                    <p>Hello. How are you today?</p>
+                    <span class="time-right">11:00</span>
+                </li>
+                @*<li class="clearfix">
+            <div class="message-data align-right">
+                <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
+                <span class="message-data-name">Olia</span>
+
+            </div>
+            <div class="message other-message float-right">
+                Hi Vincent, how are you? How is the project coming along?
+            </div>
+        </li>*@
+            </ul>
+        </div>
+
+        @* Type Message *@
+        <div class="chat-message clearfix">
+            <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+            <button id="sendButton">Send</button>
+        </div>
+        @* Type Message End *@
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
