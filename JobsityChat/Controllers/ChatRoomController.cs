@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StockBot;
 
 namespace JobsityChat.Controllers
 {
@@ -6,6 +7,7 @@ namespace JobsityChat.Controllers
     {
         public IActionResult Index()
         {
+            var quoteMessage = BotTasks.GetStockMessage("aapl.us");
             return View();
         }
     }

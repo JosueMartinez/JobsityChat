@@ -35,6 +35,7 @@ namespace JobsityChat
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            //adding signalR service
             services.AddSignalR();
         }
 
@@ -66,6 +67,7 @@ namespace JobsityChat
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                //endpoint to connect signalR
                 endpoints.MapHub<ChatHub>("/chatHub");
             });
         }

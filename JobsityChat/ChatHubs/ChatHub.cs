@@ -9,6 +9,7 @@ namespace JobsityChat.ChatHubs
         public async Task SendMessage(string username, string message)
         {
             var msgTime = DateTime.Now.ToString("h:mm:ss tt");
+            //send message to all clients js function
             await Clients.All.SendAsync("ReceiveMessage", username, message, msgTime);
         }
     }
