@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using JobsityChat.Data;
+using JobsityChat.Models;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Threading.Tasks;
 
@@ -6,6 +8,13 @@ namespace JobsityChat.ChatHubs
 {
     public class ChatHub : Hub
     {
+        private IMesssageRepository _messageRepository;
+
+        public ChatHub(IMesssageRepository messageRepository)
+        {
+            _messageRepository = messageRepository;
+        }
+
         public async Task SendMessage(string username, string message)
         {
             var msgTime = DateTime.Now.ToString("h:mm:ss tt");
@@ -20,6 +29,17 @@ namespace JobsityChat.ChatHubs
                 var stockCode = stockRequest[1];
                 username = "StockBot";
                 message = StockBot.BotTasks.GetStockMessage(stockCode);
+            }
+            else
+            {
+                var entity = new Message
+                {
+                    Content = message,
+                    User = username,
+                    TimeStamp = DateTime.Now
+                };
+
+                _messageRepository.Add(entity);
             }
             
             //send message to all clients js function

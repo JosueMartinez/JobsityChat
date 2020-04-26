@@ -1,27 +1,31 @@
 ﻿using JobsityChat.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace JobsityChat.Data
 {
-    public class MessageRepository: IRepository<Message> 
+    public class MessageRepository: IMesssageRepository 
     {
-        ApplicationDbContext _context;
+        private ApplicationDbContext _context;
+        private DbSet<Message> _messageEntity;
 
         public MessageRepository(ApplicationDbContext context)
         {
             _context = context;
+            _messageEntity = context.Set<Message>();
         }
 
-        public void Add(Message entity)
+
+        public void Add(Message message)
         {
-            _context.Messages.Add(entity);
+            _context.Messages.Add(message);
             _context.SaveChanges();
         }
 
         public List<Message> GetAll()
         {
-            return _context.Messages
+            return _messageEntity
                 .OrderByDescending(x => x.TimeStamp)
                 .Take(50)
                 .ToList();
