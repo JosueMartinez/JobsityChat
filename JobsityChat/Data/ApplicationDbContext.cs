@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Message = JobsityChat.Models.Message;
 
 namespace JobsityChat.Data
 {
@@ -12,5 +10,7 @@ namespace JobsityChat.Data
             : base(options)
         {
         }
+
+        public DbSet<Message> Messages { get; set; }
     }
 }
