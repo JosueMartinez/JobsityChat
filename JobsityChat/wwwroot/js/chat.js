@@ -2,7 +2,7 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-var counter = 0;   //number of messages received
+var counter = document.getElementById('counter').value;   //number of messages received
 var limit = 50;    //numer of messages to show in chat
 
 //Disable send button until connection is established

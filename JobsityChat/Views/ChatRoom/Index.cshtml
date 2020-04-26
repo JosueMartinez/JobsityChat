@@ -1,8 +1,11 @@
-﻿
-@{
+﻿@model List<Message>
 
+@{ 
+    int counter = 0;
 }
-    <input id="username" type="hidden" value="@User.Identity.Name" />
+
+<input id="username" type="hidden" value="@User.Identity.Name" />
+<input id="counter" type="hidden" value="@Model.Count" />
 
 <div class="container-chat clear-fix">
     <div class="people-list" id="people-list">
@@ -17,7 +20,16 @@
         </div>
         <div class="chat-history">
             @* Messages will be displayed as ul child *@
-            <ul id="messagesList">                
+            <ul id="messagesList">   
+                @foreach(var message in @Model)
+                {
+                    counter++;
+                    <li class="message-container" id="@counter">
+                        <p class="font-weight-bold">@message.User:</p>
+                        <p>@message.Content</p>
+                        <span class="time-right">@message.TimeStamp</span>
+                    </li>
+                }
             </ul>
         </div>
 

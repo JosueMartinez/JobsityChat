@@ -26,7 +26,7 @@ namespace JobsityChat.Data
         public List<Message> GetAll()
         {
             return _messageEntity
-                .OrderByDescending(x => x.TimeStamp)
+                .OrderBy(x => x.TimeStamp)
                 .Take(50)
                 .ToList();
         }
