@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StockBot;
 
 namespace JobsityChat.Controllers
 {
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public class ChatRoomController : Controller
     {
         public IActionResult Index()
         {
-            var quoteMessage = BotTasks.GetStockMessage("aapl.us");
             return View();
         }
     }
